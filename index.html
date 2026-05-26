@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemanth Vemulapalli — Engineer & Builder</title>
+<meta name="description" content="Hemanth Vemulapalli — Data Engineer, IoT Builder, and Founder of Sensoul. Building privacy-first systems at the edge of hardware and AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0e0e0e;
+    --white: #fafaf8;
+    --gray-100: #f4f3f0;
+    --gray-200: #e8e6e1;
+    --gray-400: #a09d96;
+    --gray-600: #6b6760;
+    --accent: #c8602a;
+    --accent-light: #f5ede7;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    transition: padding 0.3s ease;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--gray-600);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black);
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+
+  /* SECTIONS */
+  section { padding: 7rem 4rem; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #f5ede7 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.2s forwards;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 1.2rem;
+    color: var(--gray-600);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--black);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--gray-200);
+    color: var(--black);
+    padding: 0.875rem 2rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover { border-color: var(--black); transform: translateY(-2px); }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+  }
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gray-400);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%, 100% { width: 40px; opacity: 1; }
+    50% { width: 60px; opacity: 0.5; }
+  }
+  .hero-stats {
+    position: absolute;
+    right: 4rem;
+    bottom: 4rem;
+    display: flex;
+    gap: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.7s forwards;
+  }
+  .stat { text-align: right; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--black);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 2rem;
+  }
+  .about-text {
+    color: var(--gray-600);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+  .about-right { padding-top: 3rem; }
+  .about-card {
+    background: var(--gray-100);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .about-card-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+  }
+  .about-card-text {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+  .location-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  /* SENSOUL - FEATURED */
+  #sensoul {
+    background: var(--black);
+    color: var(--white);
+  }
+  .sensoul-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  #sensoul .section-label { color: var(--accent); }
+  #sensoul .section-label::before { background: var(--accent); }
+  #sensoul .section-title { color: var(--white); }
+  .sensoul-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+  .sensoul-desc {
+    color: #a0a09a;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+  }
+  .sensoul-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .badge {
+    background: rgba(255,255,255,0.08);
+    color: #d0cfc8;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .badge-accent {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
+  }
+  .sensoul-right { display: flex; flex-direction: column; gap: 1rem; }
+  .sensor-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+  .sensor-card:hover { background: rgba(255,255,255,0.09); }
+  .sensor-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(74,222,128,0.6);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+  .sensor-name { font-size: 0.9rem; font-weight: 500; color: #e8e6e0; }
+  .sensor-detail { font-size: 0.8rem; color: #6b6760; margin-top: 0.1rem; }
+  .sensoul-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .s-stat {
+    background: rgba(255,255,255,0.05);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .s-stat-num {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--accent);
+    display: block;
+  }
+  .s-stat-label {
+    font-size: 0.75rem;
+    color: #6b6760;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.25rem;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--gray-100); }
+  .projects-inner { max-width: 1100px; margin: 0 auto; }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .project-card {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--gray-200);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--black);
+    margin-bottom: 0.75rem;
+  }
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .project-tag {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    padding: 0.25rem 0.7rem;
+    border-radius: 2rem;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--white); }
+  .skills-inner { max-width: 1100px; margin: 0 auto; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .skill-group { }
+  .skill-group-title {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .skill-name { font-size: 0.9rem; color: var(--gray-600); }
+  .skill-bar {
+    height: 3px;
+    width: 80px;
+    background: var(--gray-200);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transform-origin: left;
+    animation: fillBar 1s ease forwards;
+  }
+  @keyframes fillBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* CONTACT */
+  #contact { background: var(--gray-100); }
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .contact-form { margin-top: 2rem; }
+  .form-group { margin-bottom: 1.5rem; }
+  .form-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--black);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--black); }
+  .form-textarea { resize: vertical; min-height: 130px; }
+  .form-submit {
+    width: 100%;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 3rem;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.25s;
+  }
+  .form-submit:hover { background: var(--accent); }
+  .contact-links { margin-top: 2rem; }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    text-decoration: none;
+    color: var(--black);
+    transition: gap 0.2s;
+  }
+  .contact-link:hover { gap: 1.5rem; }
+  .contact-link-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    border: 1px solid var(--gray-200);
+  }
+  .contact-link-label { font-size: 0.8rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-link-value { font-size: 0.95rem; color: var(--black); font-weight: 400; }
+  .contact-arrow { margin-left: auto; color: var(--gray-400); font-size: 1.2rem; }
+
+  /* RESUME */
+  .resume-strip {
+    background: var(--accent);
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .resume-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+  .resume-sub { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 0.25rem; }
+  .btn-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white);
+    color: var(--accent);
+    padding: 0.875rem 2rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .btn-resume:hover { background: var(--black); color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 2.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-text { font-size: 0.8rem; color: #555; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 0.8rem; color: #555; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid, .sensoul-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+    .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+    .hero-scroll { display: none; }
+    .resume-strip { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    .sensoul-stat-row { grid-template-columns: 1fr 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">HV</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#sensoul">Sensoul</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Engineer & Builder</div>
+    <h1 class="hero-name">Hemanth<br><em>Vemulapalli</em></h1>
+    <p class="hero-desc">Data engineer, IoT builder, and founder of Sensoul — a privacy-first elderly care system powered by edge AI and sensor fusion.</p>
+    <div class="hero-actions">
+      <a href="#sensoul" class="btn-primary">View Sensoul Project ↓</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Sensors fused</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">30K+</div>
+      <div class="stat-label">Samples logged</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">801</div>
+      <div class="stat-label">Features/sample</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Building things that matter at the edge</h2>
+      <p class="about-text">I'm a data engineer and systems builder with a passion for turning hardware, data pipelines, and machine learning into real-world impact. I work at the intersection of embedded systems, edge computing, and AI.</p>
+      <p class="about-text">Currently building Sensoul — a privacy-first elderly distress detection system that uses sensor fusion and edge ML to keep people safe without cameras or microphones.</p>
+      <div class="location-pill">📍 United States</div>
+    </div>
+    <div class="about-right reveal">
+      <div class="about-card">
+        <div class="about-card-title">🔧 Hardware to Cloud</div>
+        <div class="about-card-text">From wiring breadboards and tuning I²C buses to building Parquet pipelines and ML-ready datasets — I own the full stack, end to end.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-title">🧠 Privacy-First AI</div>
+        <div class="about-card-text">Sensoul runs all inference on-device with no camera, no microphone, no cloud dependency. Edge ML that respects the people it serves.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-title">📊 Data Engineering</div>
+        <div class="about-card-text">Designing production-grade data pipelines with validation, compression, partitioning, and automated reporting — built to run for years unattended.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SENSOUL FEATURED -->
+<section id="sensoul">
+  <div class="sensoul-inner">
+    <div class="reveal">
+      <div class="section-label">Featured Project</div>
+      <h2 class="section-title">Sensoul — Privacy-First<br>Elderly Care System</h2>
+    </div>
+    <div class="sensoul-grid">
+      <div class="reveal">
+        <p class="sensoul-desc">A ceiling-mounted distress detection device that uses 5-sensor fusion to protect elderly individuals — with no camera, no microphone, and no cloud. All ML inference runs on-device on a Raspberry Pi 5.</p>
+        <p class="sensoul-desc">When danger is detected, a weighted danger score triggers a 30-second cancel window before automatically alerting emergency services.</p>
+        <div class="sensoul-badges">
+          <span class="badge badge-accent">✅ All 5 sensors validated</span>
+          <span class="badge">Raspberry Pi 5</span>
+          <span class="badge">Edge ML</span>
+          <span class="badge">Sensor Fusion</span>
+          <span class="badge">Privacy-First</span>
+          <span class="badge">Python</span>
+          <span class="badge">Parquet Pipeline</span>
+        </div>
+        <div class="sensoul-stat-row">
+          <div class="s-stat">
+            <span class="s-stat-num">30K+</span>
+            <div class="s-stat-label">Samples</div>
+          </div>
+          <div class="s-stat">
+            <span class="s-stat-num">2 Hz</span>
+            <div class="s-stat-label">Sample rate</div>
+          </div>
+          <div class="s-stat">
+            <span class="s-stat-num">801</span>
+            <div class="s-stat-label">Features</div>
+          </div>
+        </div>
+      </div>
+      <div class="sensoul-right reveal">
+        <div class="sensor-card">
+          <div class="sensor-dot"></div>
+          <div>
+            <div class="sensor-name">MLX90640 Thermal Camera</div>
+            <div class="sensor-detail">32×24 pixel array · 110° FOV · Body heat detection</div>
+          </div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-dot"></div>
+          <div>
+            <div class="sensor-name">LD2410C mmWave Radar</div>
+            <div class="sensor-detail">UART · 256000 baud · Motion & stillness scoring</div>
+          </div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-dot"></div>
+          <div>
+            <div class="sensor-name">MH-Z19C CO₂ Sensor</div>
+            <div class="sensor-detail">UART2 · Breathing proxy · 374–732 ppm indoor range</div>
+          </div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-dot"></div>
+          <div>
+            <div class="sensor-name">MPU6050 IMU</div>
+            <div class="sensor-detail">I²C · Accelerometer + Gyroscope · Fall detection</div>
+          </div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-dot"></div>
+          <div>
+            <div class="sensor-name">VL53L1X Time-of-Flight</div>
+            <div class="sensor-detail">I²C · 0–4000 mm range · Floor distance & fall confirmation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-inner">
+    <div class="reveal">
+      <div class="section-label">Other Projects</div>
+      <h2 class="section-title">Things I've built</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-num">01</div>
+        <h3 class="project-title">Sensoul Data Pipeline</h3>
+        <p class="project-desc">Production-grade 1-year continuous sensor logging pipeline. Parquet format, date partitioning, Great Expectations validation, and nightly Prefect orchestration with automated email reporting.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Parquet</span>
+          <span class="project-tag">Prefect</span>
+          <span class="project-tag">SQLite</span>
+          <span class="project-tag">Pandas</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">02</div>
+        <h3 class="project-title">Real-Time Sensor Dashboard</h3>
+        <p class="project-desc">Live dashboard running on a 7" IPS display showing polar thermal radar visualization, multi-sensor status, and a weighted danger score bar — all updating at 2Hz from 5 simultaneous sensors.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Pygame</span>
+          <span class="project-tag">Raspberry Pi 5</span>
+          <span class="project-tag">Threading</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">03</div>
+        <h3 class="project-title">Edge ML Fall Detection</h3>
+        <p class="project-desc">Training a multi-sensor fall detection classifier using tsfresh for automatic feature extraction and scikit-learn Random Forest — running entirely on-device with ONNX Runtime inference.</p>
+        <div class="project-tags">
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">tsfresh</span>
+          <span class="project-tag">ONNX</span>
+          <span class="project-tag">NumPy</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">04</div>
+        <h3 class="project-title">Remote Monitoring Stack</h3>
+        <p class="project-desc">Zero-config global remote access for the Sensoul device using Tailscale VPN + Samba file sharing. Accessible from anywhere in the world including mobile data via iPhone Files app.</p>
+        <div class="project-tags">
+          <span class="project-tag">Tailscale</span>
+          <span class="project-tag">Samba</span>
+          <span class="project-tag">Linux</span>
+          <span class="project-tag">NVMe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-inner">
+    <div class="reveal">
+      <div class="section-label">Tech Stack</div>
+      <h2 class="section-title">Skills & Tools</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Hardware & Embedded</div>
+        <div class="skill-item"><span class="skill-name">Raspberry Pi 5</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">I²C / UART / SPI</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">mmWave Radar</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Sensor Fusion</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Edge Computing</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Data Engineering</div>
+        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Pandas / PyArrow</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Parquet / SQLite</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Prefect / Airflow</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Linux / systemd</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">ML & Dev Tools</div>
+        <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">PyTorch</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">FastAPI</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME STRIP -->
+<div class="resume-strip">
+  <div>
+    <div class="resume-text">Want the full picture?</div>
+    <div class="resume-sub">Download my resume for work history, education, and more.</div>
+  </div>
+  <a href="resume.pdf" class="btn-resume" download>↓ Download Resume</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's build something together</h2>
+      <p class="about-text">Open to data engineering roles, IoT consulting, and conversations about Sensoul. Reach out anytime.</p>
+      <div class="contact-links">
+        <a href="mailto:hemanthv9396@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">hemanthv9396@gmail.com</div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+        <a href="https://linkedin.com/in/hemanthvemulapalli" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">linkedin.com/in/hemanthvemulapalli</div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+        <a href="https://github.com/hemanthvemulapalli" target="_blank" class="contact-link">
+          <div class="contact-link-icon">⌥</div>
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">github.com/hemanthvemulapalli</div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="footer-logo">Hemanth Vemulapalli</a>
+  <div class="footer-text">© 2026 · hemanthvemulapalli.com</div>
+  <div class="footer-links">
+    <a href="mailto:hemanthv9396@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/hemanthvemulapalli" target="_blank">LinkedIn</a>
+    <a href="https://github.com/hemanthvemulapalli" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.padding = window.scrollY > 50 ? '0.875rem 4rem' : '1.25rem 4rem';
+  });
+
+  // Contact form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Message sent!';
+    btn.style.background = '#4ade80';
+    btn.style.color = '#0e0e0e';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
